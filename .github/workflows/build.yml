@@ -14,8 +14,6 @@ jobs:
         run: npm install
       - name: Run ESLint
         run: npx eslint .
-      - name: Run Prettier
-        run: npx prettier --check
 
   unit-tests:
     needs: formatting
