@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Login from '../component/Login';
 // import Loginstatus from '../component/loginStatus';
 
-export default function Home() {
+export default function Home () {
   return (
     <>
       <Head>

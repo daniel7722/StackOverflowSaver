@@ -5,8 +5,6 @@ describe("Authentication options", () => {
     // Mock token and user objects
     const token = { accessToken: '' };
     const user = { name: 'testUser', token: 'userToken' };
-    const token = { accessToken: "" };
-    const user = { name: "testUser", token: "userToken" };
 
     // Simulate the jwt callback function call
     const modifiedToken = await authOptions.callbacks.jwt({ token, user });

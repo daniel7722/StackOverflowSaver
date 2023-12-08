@@ -1,7 +1,6 @@
 // Import necessary dependencies
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import Login from '../component/Login';
 
