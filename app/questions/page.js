@@ -1,11 +1,11 @@
 // "use client";
 
 export const handleSubmit = async () => {
-  const questionId = "123"; // Test Question ID
+  const questionId = '123'; // Test Question ID
 
   if (!questionId) {
     // Check existence of question ID
-    console.error("Invalid Stack Overflow URL");
+    console.error('Invalid Stack Overflow URL');
     return;
   }
 
@@ -17,7 +17,7 @@ export const handleSubmit = async () => {
 
     return title;
   } catch (error) {
-    console.error("Error fetching data from Stack Overflow API", error);
+    console.error('Error fetching data from Stack Overflow API', error);
     return null;
   }
 };

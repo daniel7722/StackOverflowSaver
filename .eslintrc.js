@@ -1,4 +1,7 @@
 module.exports = {
-  extends: ["semistandard"],
-  ignorePatterns: ["**/*.test.js"],
+  extends: ['semistandard'],
+  ignorePatterns: ['**/*.test.js'],
+  rules: {
+    'no-unused-vars': 'off'
+  }
 };

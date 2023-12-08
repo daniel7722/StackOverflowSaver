@@ -14,7 +14,8 @@ export const authOptions = {
           return null;
         }
       }
-    })],
+    })
+  ],
 
   session: {
     strategy: 'jwt',
