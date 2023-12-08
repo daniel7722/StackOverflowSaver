@@ -1,0 +1,19 @@
+.question {
+  width: 25%;
+  min-width: 300px;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  cursor: pointer;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.question__content {
+  font-size: 1.5rem;
+  padding: 13px;
+}
