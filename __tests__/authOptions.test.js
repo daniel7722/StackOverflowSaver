@@ -1,9 +1,10 @@
 import { authOptions } from '../utils/auth/authOptions';
 
 describe('Authentication options', () => {
+
   test('JWT callback should modify token correctly', async () => {
     // Mock token and user objects
-    const token = { accessToken: '', };
+    const token = { accessToken: '' };
     const user = { name: 'testUser', token: 'userToken' };
 
     // Simulate the jwt callback function call
