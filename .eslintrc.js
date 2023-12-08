@@ -1,5 +1,4 @@
 module.exports = {
-  extends: [
-    'semistandard'
-  ]
+  extends: ["semistandard"],
+  ignorePatterns: ["**/*.test.js"],
 };
