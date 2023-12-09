@@ -56,6 +56,7 @@ const Modal = ({ data, close }) => {
 
   return (
     <motion.div
+      data-testid="modal-component2"
       className={styles.modal}
       variants={modalVariants}
       onClick={(e) => e.stopPropagation()}

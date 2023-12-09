@@ -1,8 +1,7 @@
-// Import necessary dependencies
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Login from '../components/cards/Login';
+import Login from '../components/login/Login';
 
 describe('Login Component Tests', () => {
 
@@ -17,5 +16,21 @@ describe('Login Component Tests', () => {
 
         // Assert
         expect(signupUsernameInput).toHaveClass('form__input--error');
+    });
+
+    test('toggleForms changes isLoginFormVisible state', () => {
+        // Arrange
+        render(<Login />);
+
+        // Act
+        const toggleButton = screen.getByText('Create an account');
+        fireEvent.click(toggleButton);
+
+        // Assert
+        const loginForm = screen.getByTestId('login-form');
+        const signupForm = screen.getByTestId('signup-form');
+
+        expect(loginForm).toHaveClass('form--hidden');
+        expect(signupForm).not.toHaveClass('form--hidden');
     });
 });
