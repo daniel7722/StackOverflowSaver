@@ -1,0 +1,12 @@
+.App {
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    padding: 25px;
+  }
+  
+  .properties {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
