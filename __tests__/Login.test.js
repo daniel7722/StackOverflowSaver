@@ -3,6 +3,9 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Login from '../components/login/Login';
 
+global.fetch = jest.fn();
+global.console.error = jest.fn();
+
 describe('Login Component Tests', () => {
 
     test('handleInputBlur sets input error for signupUsername with invalid length', () => {
@@ -32,5 +35,17 @@ describe('Login Component Tests', () => {
 
         expect(loginForm).toHaveClass('form--hidden');
         expect(signupForm).not.toHaveClass('form--hidden');
+    });
+
+    test('confirm password matches the password', () => {
+        render(<Login/>);
+        const signupPasswordInput = screen.getByTestId('signupPassword');
+        const signupConfirmPasswordInput = screen.getByTestId('signupConfirmPassword');
+        fireEvent.input(signupPasswordInput, { target: { value: 'abc' } });
+        fireEvent.input(signupConfirmPasswordInput, { target: { value: 'abcd' } });
+        fireEvent.submit(screen.getByTestId('signup-form'));
+        const formMessage = screen.getByTestId('formMessage');
+        expect(formMessage).toHaveClass('form__message--error');
+
     });
 });

@@ -25,6 +25,7 @@ export const authOptions = {
       }
     }),
     Credentials({
+      name: 'sign-up',
       id: 'sign-up',
       async authorize (credentials, req) {
         const url = `${process.env.NEXTAUTH_URL}/api/newuser`;
@@ -34,7 +35,8 @@ export const authOptions = {
           headers: { 'Content-Type': 'application/json' }
         });
         const user = await res.json();
-        if (user.name) {
+        console.log(user);
+        if (user.ok) {
           return user;
         } else {
           return null;
@@ -56,8 +58,10 @@ export const authOptions = {
 
   callbacks: {
     signIn: async ({ account }) => {
-      console.log('hello');
+      console.log(account);
       if (account.provider === 'sign-in') {
+        return true;
+      } else if (account.provider === 'sign-up') {
         return true;
       }
     },
