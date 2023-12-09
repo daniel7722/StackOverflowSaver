@@ -57,7 +57,7 @@ export const authOptions = {
   callbacks: {
     signIn: async ({ account }) => {
       console.log('hello');
-      if (account.provider === 'credentials') {
+      if (account.provider === 'sign-in') {
         return true;
       }
     },

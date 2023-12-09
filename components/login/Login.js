@@ -80,7 +80,7 @@ const Login = () => {
       if (result.error) {
         setFormMessage(formElement, 'error', 'Invalid username/password combination');
       } else {
-        window.location.href = '/';
+        window.location.href = '/my-questions';
       }
     } catch (error) {
       console.error('Error during login:', error);

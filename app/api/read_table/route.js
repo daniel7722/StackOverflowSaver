@@ -16,8 +16,6 @@ export async function POST (req) {
 
     const result = await conn.query(query, [username]);
 
-    console.log('Query Result:', result.rows);
-
     return NextResponse.json({ data: result.rows });
   } catch (error) {
     console.error('Error fetching data from the database', error);
