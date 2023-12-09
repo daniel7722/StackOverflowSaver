@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Login from '../component/Login';
+import Login from '../components/cards/Login';
 
 describe('Login Component Tests', () => {
 

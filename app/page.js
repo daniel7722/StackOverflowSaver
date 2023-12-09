@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Login from '../component/Login';
+import Login from '../components/cards/Login';
 // import Loginstatus from '../component/loginStatus';
 
 export default function Home () {
