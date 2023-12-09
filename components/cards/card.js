@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Question from "./question";
-import Overlay from "./overlay";
-import Modal from "./modal";
-import { AnimatePresence } from "framer-motion";
+import React, { useState } from 'react';
+import Question from './question';
+import Overlay from './overlay';
+import Modal from './modal';
+import { AnimatePresence } from 'framer-motion';
 
 const Card = ({ data }) => {
   const [open, setOpen] = useState(false);
