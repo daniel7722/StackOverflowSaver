@@ -4,6 +4,7 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     Credentials({
+      name: 'sign-in',
       id: 'sign-in',
       async authorize (credentials, req) {
         const url = `${process.env.NEXTAUTH_URL}/api/login`;
@@ -12,7 +13,9 @@ export const authOptions = {
           body: JSON.stringify(credentials),
           headers: { 'Content-Type': 'application/json' }
         });
+        console.log(res);
         const user = await res.json();
+        console.log(user);
 
         if (user.name) {
           return user;
@@ -46,12 +49,18 @@ export const authOptions = {
   },
 
   pages: {
-    signIn: '/login-signup',
+    signIn: '/',
     signOut: null,
     error: '/auth/error' // Error code passed in query string as ?error=
   },
 
   callbacks: {
+    signIn: async ({ account }) => {
+      console.log('hello');
+      if (account.provider === 'credentials') {
+        return true;
+      }
+    },
 
     jwt: async ({ token, user }) => {
       if (user) {

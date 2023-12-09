@@ -75,9 +75,9 @@ const Login = () => {
         callbackUrl: '/',
         redirect: false // Prevent automatic redirect
       });
-      const hello = JSON.stringify(result);
+      // console.log("result", result);
       // Check the result and handle accordingly
-      if (hello.error) {
+      if (result.error) {
         setFormMessage(formElement, 'error', 'Invalid username/password combination');
       } else {
         window.location.href = '/';
@@ -120,7 +120,7 @@ const Login = () => {
   return (
     <>
       <div className="container">
-        <form id='credentials' data-testid='login-form' className={`form ${isLoginFormVisible ? '' : 'form--hidden'}`} method='post' onSubmit={handleFormSubmit}>
+        <form id='sign-in' data-testid='login-form' className={`form ${isLoginFormVisible ? '' : 'form--hidden'}`} method='post' onSubmit={handleFormSubmit}>
           <h1 className="form__title">Log in</h1>
           <div className="form__message form__message--error"></div>
           <div className="for__input-group">
@@ -135,7 +135,7 @@ const Login = () => {
           <p className="form__text">Don't have an account? <a className="form__link" href="#" id="linkCreateAccount" onClick={toggleForms}>Create an account</a>
           </p>
         </form>
-        <form className={`form ${isLoginFormVisible ? 'form--hidden' : ''}`} id="credential2" data-testid='signup-form' onSubmit={handleFormSubmit}>
+        <form className={`form ${isLoginFormVisible ? 'form--hidden' : ''}`} id="sign-up" data-testid='signup-form' onSubmit={handleFormSubmit}>
           <h1 className="form__title">Create Account</h1>
           <div className="form__message form__message--error"></div>
           <div className="for__input-group">
