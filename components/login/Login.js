@@ -75,7 +75,7 @@ const Login = () => {
         callbackUrl: '/',
         redirect: false // Prevent automatic redirect
       });
-      // console.log("result", result);
+      console.log('result', result);
       // Check the result and handle accordingly
       if (result.error) {
         setFormMessage(formElement, 'error', 'Invalid username/password combination');
@@ -92,6 +92,13 @@ const Login = () => {
     const formElement = e.target;
     const username = formElement.querySelector(".form__input[type='text']").value;
     const password = formElement.querySelector(".form__input[type='password']").value;
+    const confirmPassword = formElement.querySelector(".form__input[id='confirmPassword']").value;
+
+    if (password !== confirmPassword) {
+      setFormMessage(formElement, 'error', 'Passwords do not match');
+      return;
+    }
+
     try {
       // Use signIn to trigger credential authorization on the server side
       const result = await signIn('sign-up', {
@@ -137,17 +144,17 @@ const Login = () => {
         </form>
         <form className={`form ${isLoginFormVisible ? 'form--hidden' : ''}`} id="sign-up" data-testid='signup-form' onSubmit={handleFormSubmit}>
           <h1 className="form__title">Create Account</h1>
-          <div className="form__message form__message--error"></div>
+          <div className="form__message form__message--error" data-testid='formMessage'></div>
           <div className="for__input-group">
             <input type="text" className="form__input" id="signupUsername" autoFocus placeholder="Username" />
             <div className="form__input-error-message"></div>
           </div>
           <div className="for__input-group">
-            <input type="password" className="form__input" autoFocus placeholder="Password" />
+            <input data-testid='signupPassword' type="password" className="form__input" autoFocus placeholder="Password" />
             <div className="form__input-error-message"></div>
           </div>
           <div className="for__input-group">
-            <input type="password" className="form__input" autoFocus placeholder="Confirm Password" />
+            <input id='confirmPassword' data-testid='signupConfirmPassword' type="password" className="form__input" autoFocus placeholder="Confirm Password" />
             <div className="form__input-error-message"></div>
           </div>
           <button className="form__button" type="submit">Continue</button>
