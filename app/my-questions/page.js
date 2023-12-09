@@ -37,6 +37,12 @@ export default function QuestionList () {
     const match = url.match(regex);
     return match ? match[1] : null;
   };
+    // Handle deletion of a question
+  const handleDelete = (deletedQuestionId) => {
+    // Filter out the deleted question from the current state
+    const updatedQuestions = questions.filter(question => question.q_id !== deletedQuestionId);
+    setQuestions(updatedQuestions);
+  };
 
   const handleSubmit = async () => {
     const stackoverflowUrl = document.getElementById('stackoverflowUrl').value;
@@ -139,7 +145,7 @@ export default function QuestionList () {
             <div className={styles.App}>
                 <div className={styles.properties}>
                     {questions.map((question) => (
-                        <Card data={question} key={question.q_id} />
+              <Card data={question} key={question.q_id} onDelete={() => handleDelete(question.q_id)}/>
                     ))}
                 </div>
             </div>
