@@ -30,12 +30,6 @@ body {
   align-items: center;
 }
 
-/* .container,
-.form__input,
-.form__button {
-  
-} */
-
 .container {
   border-radius: 10px;
   background-color: rgb(38, 41, 48);
