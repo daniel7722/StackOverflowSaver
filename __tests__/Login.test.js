@@ -26,7 +26,7 @@ describe('Login Component Tests', () => {
         render(<Login />);
 
         // Act
-        const toggleButton = screen.getByText('Create an account');
+        const toggleButton = screen.getByText("Don't have an account?");
         fireEvent.click(toggleButton);
 
         // Assert

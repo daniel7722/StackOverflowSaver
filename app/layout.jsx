@@ -1,17 +1,20 @@
-import { Inter } from 'next/font/google';
+import { Ropa_Sans } from 'next/font/google';
 import './globals.css';
 import NextAuthProvider from '../utils/sessionProvider';
 
-const inter = Inter({ subsets: ['latin'] });
+const ropa_Sans = Ropa_Sans({
+  style: ['normal'],
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap'
+});
 
 export default function RootLayout ({ children }) {
   return (
     <html lang="en">
-      <body className={'inter.className'}>
+      <body className={'ropa_Sans.className'}>
         <NextAuthProvider>
-          <div className='w-10/12 m-auto text-center bg-white flex flex-col min-h-screen'>
             <div className="grow">{children}</div>
-          </div>
         </NextAuthProvider>
       </body>
     </html>

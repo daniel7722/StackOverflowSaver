@@ -139,7 +139,7 @@ const Login = () => {
             <div className="form__input-error-message"></div>
           </div>
           <button className="form__button" type='submit'>Continue</button>
-          <p className="form__text">Don't have an account? <a className="form__link" href="#" id="linkCreateAccount" onClick={toggleForms}>Create an account</a>
+          <p className="form__text"><a className="form__link" href="#" id="linkCreateAccount" onClick={toggleForms}>Don't have an account?</a>
           </p>
         </form>
         <form className={`form ${isLoginFormVisible ? 'form--hidden' : ''}`} id="sign-up" data-testid='signup-form' onSubmit={handleFormSubmit}>
@@ -158,7 +158,7 @@ const Login = () => {
             <div className="form__input-error-message"></div>
           </div>
           <button className="form__button" type="submit">Continue</button>
-          <p className="form__text"> Already have an account? <a className="form__link" href="#" id="linkLogin" onClick={toggleForms}>Sign in</a>
+          <p className="form__text"><a className="form__link" href="#" id="linkLogin" onClick={toggleForms}>Already have an account?</a>
           </p>
         </form>
       </div>
