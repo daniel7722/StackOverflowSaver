@@ -13,6 +13,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "bcrypt": "^5.1.1",
     "framer": "^2.4.1",
     "framer-motion": "^10.16.14",
     "fs": "^0.0.1-security",

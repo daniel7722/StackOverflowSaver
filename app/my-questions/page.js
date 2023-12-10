@@ -45,7 +45,7 @@ export default function QuestionList () {
                 <div className={styles.properties}>
                     <FormCard data={formCard} setQuestions={setQuestions} />
                     {questions.map((question) => (
-                        <Card data={question} key={question.q_id} />
+              <Card data={question} key={question.q_id} onDelete={() => handleDelete(question.q_id)}/>
                     ))}
                 </div>
             </div>

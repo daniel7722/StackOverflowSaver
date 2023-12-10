@@ -13,9 +13,7 @@ export const authOptions = {
           body: JSON.stringify(credentials),
           headers: { 'Content-Type': 'application/json' }
         });
-        console.log(res);
         const user = await res.json();
-        console.log(user);
 
         if (user.name) {
           return user;
@@ -35,7 +33,6 @@ export const authOptions = {
           headers: { 'Content-Type': 'application/json' }
         });
         const user = await res.json();
-        console.log(user);
         if (user.ok) {
           return user;
         } else {

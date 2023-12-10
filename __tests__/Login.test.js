@@ -1,10 +1,11 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { act, render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Login from '../components/login/Login';
 
 global.fetch = jest.fn();
 global.console.error = jest.fn();
+jest.mock('bcrypt');
 
 describe('Login Component Tests', () => {
 
@@ -26,7 +27,7 @@ describe('Login Component Tests', () => {
         render(<Login />);
 
         // Act
-        const toggleButton = screen.getByText('Create an account');
+        const toggleButton = screen.getByText("Don't have an account?");
         fireEvent.click(toggleButton);
 
         // Assert
