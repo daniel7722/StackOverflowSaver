@@ -1,5 +1,6 @@
+'use client';
 import React, { useState } from 'react';
-import Question from './question';
+import FormQuestion from './formQuestion';
 import Overlay from './overlay';
 import FormModal from './formModal';
 import { AnimatePresence } from 'framer-motion';
@@ -17,7 +18,7 @@ const FormCard = ({ data, setQuestions }) => {
 
   return (
     <>
-      <Question data-testid="question-component" data={data} open={openModal} />
+      <FormQuestion data-testid="question-component" data={data} open={openModal} />
       <AnimatePresence>
         {open && (
           <Overlay data-testid="overlay-component2" close={closeModal}>

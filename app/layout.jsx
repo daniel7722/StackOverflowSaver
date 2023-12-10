@@ -14,7 +14,7 @@ export default function RootLayout ({ children }) {
     <html lang="en">
       <body className={'ropa_Sans.className'}>
         <NextAuthProvider>
-            <div className="grow">{children}</div>
+            {children}
         </NextAuthProvider>
       </body>
     </html>

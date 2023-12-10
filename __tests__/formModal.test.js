@@ -46,7 +46,7 @@ describe('FormModal component', () => {
 
     // Fill in form inputs
     const urlInput = getByPlaceholderText('Enter Stack Overflow URL');
-    const rankInput = getByPlaceholderText('Rank');
+    const rankInput = getByPlaceholderText('Which answer? e.g. 2');
 
     fireEvent.change(urlInput, { target: { value: 'https://stackoverflow.com/questions/12345/example' } });
     fireEvent.change(rankInput, { target: { value: '2' } });

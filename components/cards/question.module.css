@@ -6,15 +6,28 @@
   justify-content: center;
   margin: 20px;
   cursor: pointer;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  background-color: white;
+  box-shadow: rgba(76, 78, 81, 0.2) 0px 8px 24px;
+  background-color: rgb(38, 41, 48);
   border-radius: 10px;
   overflow: hidden;
   align-items: center;
   text-align: center;
+  color: #dbdce9;
+  border: solid 2px rgb(49, 56, 72);
+}
+
+.question:hover{
+
+  border: solid 2px rgb(222, 180, 104);
 }
 
 .question__content {
   font-size: 1.5rem;
+  padding: 13px;
+}
+
+.add {
+  font-size: 3.5rem;
+  color: #65666d;
   padding: 13px;
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './question.module.css';
 import { motion } from 'framer-motion';
 
-const Question = ({ data, open }) => {
+const FormQuestion = ({ data, open }) => {
   const { question } = data;
 
   return (
@@ -14,7 +14,7 @@ const Question = ({ data, open }) => {
     >
       <div
         data-testid="question-component"
-        className={styles.question__content}
+        className={styles.add}
       >
         {question}
       </div>
@@ -22,4 +22,4 @@ const Question = ({ data, open }) => {
   );
 };
 
-export default Question;
+export default FormQuestion;

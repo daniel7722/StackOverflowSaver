@@ -19,6 +19,8 @@ jest.mock("next-auth/react", () => {
     };
   });
 
+global.console.error = jest.fn();
+
 describe('Modal component', () => {
   const mockClose = jest.fn(); // Mock function for the 'close' prop
   const mockData = {

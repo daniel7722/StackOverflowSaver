@@ -35,11 +35,10 @@ export default function QuestionList () {
   }, [session]); // Dependency on session
 
   return (
-        <div className="max-w-4xl mx-auto mt-8">
-            <h1 className="text-3xl font-semibold text-gray-900 mb-4">{session?.user}</h1>
-
-            <div className="mt-4" />
-
+        <div>
+            <div className={styles.container}>
+            <h1 className="text-3xl font-semibold text-white mb-4">{session?.user}</h1>
+            </div>
             {/* Question List */}
             <div className={styles.App}>
                 <div className={styles.properties}>

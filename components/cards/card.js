@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import Question from './question';
 import Overlay from './overlay';

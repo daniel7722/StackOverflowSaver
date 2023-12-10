@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from './modal.module.css';
 import { motion } from 'framer-motion';
@@ -96,20 +97,21 @@ const FormModal = ({ close, setQuestions }) => {
     >
       <motion.div className={styles.modal__form} variants={modalInfoVariants}>
         <input
+            className={styles.modal_input}
             type="text"
             name="stackoverflowUrl"
             id="stackoverflowUrl"
-            className="flex-1 block h-10 rounded-md border-0 py-2 pl-7 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             placeholder="Enter Stack Overflow URL"
         />
         <input
             type="text"
             name="answerRank"
             id="answerRank"
-            className="w-16 h-10 rounded-md border-0 py-2 pl-4 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="Rank"
+            className={styles.modal_rank}
+            placeholder="Which answer? e.g. 2"
         />
         <motion.button
+          className={styles.button}
           data-testid="submit-button"
           whileHover={{ scale: 1.2 }}
           onClick={handleSubmit}

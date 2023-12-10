@@ -2,10 +2,11 @@
     min-height: 600px;
     border-radius: 20px;
     position: relative;
-    background-color: white;
+    background-color: rgb(38, 41, 48);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     display: flex;
     overflow: scroll;
+    border: solid 2px rgb(222, 180, 104);
   }
   
   .modal__image {
@@ -14,16 +15,61 @@
   }
   
   .modal__info {
-    background-color: white;
+    background-color: rgb(38, 41, 48);
     display: flex;
   }
 
   .modal__form {
-    background-color: white;
+    background-color: rgb(38, 41, 48);
     display: flex;
-
+    flex-direction: column;
+    justify-content: center;
   }
+
+.modal_input {
+  background-color: rgb(25, 28, 32);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 500px;
+  height: 40%;
+  max-height: 65px;
+  margin: 5px;
+  text-align: center;
+  color: #dbdce9;
+  outline:none;
+  border: 1px solid rgb(49, 56, 72);
+}
+
+.modal_input:hover {
+  border: solid 2px rgb(222, 180, 104);
+}
+
+.modal_input:focus {
+  border: solid 2px rgb(222, 180, 104);
+}
+
+.modal_rank {
+  background-color: rgb(25, 28, 32);
+  width: 100%;
+  max-width: 500px;
+  height: 30%;
+  max-height: 65px;
+  margin: 5px;
+  text-align: center;
+  color: #dbdce9;
+  outline: none;
+  border: 1px solid rgb(49, 56, 72);
+}
+
+.modal_rank:hover {
+  border: solid 2px rgb(222, 180, 104);
+}
+
+.modal_rank:focus {
+  border: solid 2px rgb(222, 180, 104);
   
+}
+
   .modal__row {
     margin: 20px 0px;
     display: flex;
@@ -31,6 +77,27 @@
     text-align: left;
   }
   
+  .button {
+    width: 30%;
+    max-width: 350px;
+    font-weight: bold;
+    height: 30%;
+    max-height: 50px;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    background: rgb(151, 127, 82);
+    margin-bottom:1rem;
+    margin-top: 15px;
+  }
+
+  .button:hover {
+    background-color: rgb(222, 180, 104);
+  }
+
   .modal__descriptionwrapper {
     margin: 20px 0px;
     text-align: left;
@@ -38,10 +105,12 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    width: 100%;
   }
   
   .modal__price {
     font-size: 1.5rem;
+    color: rgb(222, 180, 104);
   }
   
   .modal__address {
@@ -50,7 +119,7 @@
   }
   
   .modal__description {
-    color: #737373;
+    color: #dbdce9;
     margin: 0px;
     padding: 0px;
     font-size: clamp(8px, 2vw, 22px);
@@ -66,6 +135,10 @@
   .modal__closeicon {
     width: 40px;
     height: 40px;
+  }
+
+  .modal__closeicon:hover {
+    color: rgb(222, 180, 104);
   }
   
   @media only screen {
@@ -96,7 +169,7 @@
       height: 100%;
       padding: 20px;
       flex-direction: column;
-      align-items: flex-start;
+      justify-content: center;
     }
   
     .modal__closewrapper {
@@ -139,7 +212,8 @@
       height: 100%;
       padding: 20px;
       flex-direction: column;
-      align-items: flex-start;
+      justify-content: center;
+      align-items: center;
     }
   
     .modal__closewrapper {
