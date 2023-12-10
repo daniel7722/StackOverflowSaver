@@ -17,8 +17,9 @@
 }
 
 .question:hover{
-
-  border: solid 2px rgb(222, 180, 104);
+  background-color: rgb(222, 180, 104);
+  color: rgb(38, 41, 48);
+  /* border: solid 2px rgb(222, 180, 104); */
 }
 
 .question__content {

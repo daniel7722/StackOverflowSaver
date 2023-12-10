@@ -5,9 +5,11 @@ import { useSession } from 'next-auth/react';
 import styles from './q.module.css';
 import Card from '../../components/cards/card';
 import FormCard from '@/components/cards/formCard';
+import { IoSearch } from 'react-icons/io5';
 
 export default function QuestionList () {
   const [questions, setQuestions] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   const { data: session } = useSession(); // Use the session
 
@@ -39,13 +41,28 @@ export default function QuestionList () {
             <div className={styles.container}>
             <h1 className="text-3xl font-semibold text-white mb-4">{session?.user}</h1>
             </div>
+            <div className={styles.searchContainer}>
+            <IoSearch className={styles.searchIcon}/>
+            <input
+        id="searchInput"
+        type="text"
+        maxLength={70}
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        className={styles.search}
+      />
+      </div>
             {/* Question List */}
             <div className={styles.App}>
                 <div className={styles.properties}>
                     <FormCard data={formCard} setQuestions={setQuestions} />
-                    {questions.map((question) => (
+                    {questions
+                      .filter(({ question }) =>
+                        question.toLowerCase().trim().includes(searchText.toLowerCase().trim())
+                      )
+                      .map((question) => (
               <Card data={question} key={question.q_id} setQuestions={setQuestions} questions={questions}/>
-                    ))}
+                      ))}
                 </div>
             </div>
         </div>

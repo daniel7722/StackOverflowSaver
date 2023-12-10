@@ -21,6 +21,7 @@ body {
     background-color: rgb(25, 28, 32);
     font-family: 'Ropa Sans', sans-serif;
     font-weight: 400;
+
 }
 
 .loginContainer {
@@ -144,6 +145,8 @@ body {
 .form__link:hover {
     text-decoration: underline;
 }
+
+
 
 input:focus::placeholder {
   color:transparent;
