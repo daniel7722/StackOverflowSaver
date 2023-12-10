@@ -4,7 +4,7 @@ import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
 
-const Modal = ({ data, close, onDelete }) => {
+const Modal = ({ data, close, setQuestions, questions }) => {
   const { q_id, a_id, question, answer } = data;
   const { data: session } = useSession();
   const { user } = session;
@@ -26,7 +26,8 @@ const Modal = ({ data, close, onDelete }) => {
       console.log('Delete response:', result); // Log the response
 
       if (result.success) {
-        onDelete();
+        const updatedQuestions = questions.filter(question => question.q_id !== q_id);
+        setQuestions(updatedQuestions);
       } else {
         // Handle failure
       }
