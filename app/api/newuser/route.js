@@ -12,7 +12,7 @@ export async function POST (req) {
     if (result.rowCount > 0) {
       return NextResponse.json({ ok: false, message: 'You already have an account' });
     } else {
-      const hashedPassword = await bcrypt.hash(password, 13);
+      const hashedPassword = await bcrypt.hash(password, 10);
       try {
         const query2 = 'INSERT INTO users (username, password) VALUES ($1, $2)';
         const result = await conn.query(query2, [username, hashedPassword]);

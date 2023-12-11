@@ -31,6 +31,7 @@ const Modal = ({ data, close, setQuestions, questions }) => {
         console.log('Delete response:', result); // Log the response
 
         if (result.success) {
+          close();
           const updatedQuestions = questions.filter(question => question.q_id !== q_id);
           setQuestions(updatedQuestions);
         } else {
