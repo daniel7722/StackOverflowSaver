@@ -52,8 +52,12 @@
     text-indent: 1rem;
     border-radius: 15px;
     font-size: 0.8em;
-    background-color: rgb(151, 127, 82);
+    background-color: rgb(176, 153, 111);
     outline: none;
+}
+
+.search:hover {
+    border: solid 2px rgb(222, 180, 104); 
 }
 
 
@@ -70,3 +74,36 @@
     justify-content: center;
     align-items: center;
 }
+
+.sidebar {
+    position: absolute;
+    top: 60px; /* Adjust this based on your layout */
+    right: 0;
+    width: 150px;
+    background-color: rgb(38, 41, 48);
+    padding: 10px;
+    border: solid 2px rgb(49, 56, 72);
+  }
+
+  .signOut {
+    background-color: rgb(38, 41, 48);
+    color: rgb(222, 180, 104);
+    width: 100%;
+  }
+
+  .signOut:hover {
+    background-color: rgb(222, 180, 104);
+    color: rgb(38, 41, 48);
+  }
+
+  .delete {
+    background-color: rgb(38, 41, 48);
+    color: #cc3333;;
+    width: 100%;
+  }
+
+  .delete:hover {
+    background-color: #cc3333;;
+    color: rgb(38, 41, 48);
+  }
+

@@ -75,6 +75,7 @@ describe('QuestionList component', () => {
     fireEvent.click(settingsIcon);
 
     fireEvent.click(getByText('Delete Account'));
+    fireEvent.click(getByText('Confirm Delete'));
 
     await waitFor(() => {
       expect(fetch).toHaveBeenCalledTimes(7);

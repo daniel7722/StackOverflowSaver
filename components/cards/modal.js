@@ -1,12 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './modal.module.css';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
-import { useState } from 'react';
-import { FaCheck} from "react-icons/fa";
-
+import { FaCheck } from 'react-icons/fa';
 
 const Modal = ({ data, close, setQuestions, questions }) => {
   const { q_id, a_id, question, answer } = data;
@@ -19,29 +17,29 @@ const Modal = ({ data, close, setQuestions, questions }) => {
   const handleDelete = async () => {
     console.log('Delete button clicked'); // Simplified log statement
     console.log('Deleting:', { q_id, a_id, user }); // Log the deletion data
-    if (confirmDelete){
-    try {
-      console.log('Delete button clicked'); // Simplified log statement
-      const response = await fetch('/api/del_from_db', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ q_id, a_id, user })
-      });
+    if (confirmDelete) {
+      try {
+        console.log('Delete button clicked'); // Simplified log statement
+        const response = await fetch('/api/del_from_db', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ q_id, a_id, user })
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      console.log('Delete response:', result); // Log the response
+        console.log('Delete response:', result); // Log the response
 
-      if (result.success) {
-        const updatedQuestions = questions.filter(question => question.q_id !== q_id);
-        setQuestions(updatedQuestions);
-      } else {
+        if (result.success) {
+          const updatedQuestions = questions.filter(question => question.q_id !== q_id);
+          setQuestions(updatedQuestions);
+        } else {
         // Handle failure
+        }
+      } catch (error) {
+        console.error('Error deleting question-answer pair', error);
       }
-    } catch (error) {
-      console.error('Error deleting question-answer pair', error);
-    } 
-  } else {
+    } else {
       // Show confirmation modal when the user clicks delete button
       setConfirmDelete(true);
     }

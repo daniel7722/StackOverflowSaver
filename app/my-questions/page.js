@@ -12,6 +12,7 @@ export default function QuestionList () {
   const [questions, setQuestions] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showMenu, setShowMenu] = useState(false);
+  const [confirmDeleteAcc, setConfirmDeleteAcc] = useState(false);
 
   const { data: session } = useSession(); // Use the session
 
@@ -39,22 +40,27 @@ export default function QuestionList () {
   }, [session]); // Dependency on session
 
   const handleDeleteAccount = async () => {
-    try {
-      const response = await fetch('/api/del_user', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user: session?.user })
-      });
+    if (confirmDeleteAcc) {
+      try {
+        const response = await fetch('/api/del_user', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user: session?.user })
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      if (result.success) {
-        window.location.href = '/';
-      } else {
-      // Handle failure
+        if (result.success) {
+          window.location.href = '/';
+          setConfirmDeleteAcc(false);
+        } else {
+          // Handle failure
+        }
+      } catch (error) {
+        console.error('Error deleting question-answer pair', error);
       }
-    } catch (error) {
-      console.error('Error deleting question-answer pair', error);
+    } else {
+      setConfirmDeleteAcc(true);
     }
   };
 
@@ -72,9 +78,10 @@ export default function QuestionList () {
             <IoSettingsSharp className={styles.settings} />
             </motion.button>
             {showMenu && (
-          <div className={styles.dropdownMenu}>
-            <button onClick={() => signOut()} >Sign Out</button>
-            <button onClick={() => handleDeleteAccount()}>Delete Account</button>
+          <div className={styles.sidebar}>
+            <button className={styles.signOut} onClick={() => signOut()} >Sign Out</button>
+            <button className={styles.delete} onClick={() => handleDeleteAccount()}>{confirmDeleteAcc ? 'Confirm Delete' : 'Delete Account' }
+            </button>
           </div>
             )}
             </div>
