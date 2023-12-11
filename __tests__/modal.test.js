@@ -50,6 +50,7 @@ describe('Modal component', () => {
     // Simulate a click event on the delete button
     const deleteButton = getByTestId('delete-button');
     fireEvent.click(deleteButton);
+    fireEvent.click(deleteButton);
 
     // Verify that handleDelete function is called
     expect(global.fetch).toHaveBeenCalledWith('/api/del_from_db', {

@@ -53,5 +53,33 @@ describe('QuestionList component', () => {
         expect(question2).toBeInTheDocument();
       });
   });
+  test('Clicking "Sign Out" button should call signOut function', async () => {
+
+    const { getByText, getByTestId } = render(<QuestionList />);
+
+    const settingsIcon = getByTestId('settings-icon');
+    fireEvent.click(settingsIcon);
+
+    fireEvent.click(getByText('Sign Out'));
+
+    await waitFor(() => {
+      expect(fetch).toHaveBeenCalledTimes(5);
+    });
+  });
+
+  test('Clicking "Delete Account" button should call handleDeleteAccount function', async () => {
+
+    const { getByText, getByTestId } = render(<QuestionList />);
+
+    const settingsIcon = getByTestId('settings-icon');
+    fireEvent.click(settingsIcon);
+
+    fireEvent.click(getByText('Delete Account'));
+
+    await waitFor(() => {
+      expect(fetch).toHaveBeenCalledTimes(7);
+    });
+
+});
 
 });

@@ -1,15 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import styles from './q.module.css';
 import Card from '../../components/cards/card';
 import FormCard from '@/components/cards/formCard';
-import { IoSearch } from 'react-icons/io5';
+import { IoSearch, IoSettingsSharp } from 'react-icons/io5';
+import { motion } from 'framer-motion';
 
 export default function QuestionList () {
   const [questions, setQuestions] = useState([]);
   const [searchText, setSearchText] = useState('');
+  const [showMenu, setShowMenu] = useState(false);
 
   const { data: session } = useSession(); // Use the session
 
@@ -36,10 +38,45 @@ export default function QuestionList () {
     fetchData();
   }, [session]); // Dependency on session
 
+  const handleDeleteAccount = async () => {
+    try {
+      const response = await fetch('/api/del_user', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user: session?.user })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        window.location.href = '/';
+      } else {
+      // Handle failure
+      }
+    } catch (error) {
+      console.error('Error deleting question-answer pair', error);
+    }
+  };
+
   return (
         <div>
             <div className={styles.container}>
-            <h1 className="text-3xl font-semibold text-white mb-4">{session?.user}</h1>
+              <div></div>
+            <h1 className={styles.username}>{session?.user}</h1>
+            <motion.button
+          data-testid="settings-icon"
+          className={styles.settingsWrapper}
+          whileHover={{ scale: 1.2 }}
+          onClick={() => setShowMenu(!showMenu)}
+        >
+            <IoSettingsSharp className={styles.settings} />
+            </motion.button>
+            {showMenu && (
+          <div className={styles.dropdownMenu}>
+            <button onClick={() => signOut()} >Sign Out</button>
+            <button onClick={() => handleDeleteAccount()}>Delete Account</button>
+          </div>
+            )}
             </div>
             <div className={styles.searchContainer}>
             <IoSearch className={styles.searchIcon}/>

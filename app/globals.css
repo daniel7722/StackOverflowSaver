@@ -146,7 +146,13 @@ body {
     text-decoration: underline;
 }
 
+code {
+  color: var(--color-primary);
+}
 
+strong {
+  color: var(--color-error);
+}
 
 input:focus::placeholder {
   color:transparent;
