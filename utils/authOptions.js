@@ -50,7 +50,7 @@ export const authOptions = {
   pages: {
     signIn: '/',
     signOut: '/',
-    error: '/auth/error' // Error code passed in query string as ?error=
+    error: '/auth/error'
   },
 
   callbacks: {
@@ -66,14 +66,12 @@ export const authOptions = {
     jwt: async ({ token, user }) => {
       if (user) {
         token.accessToken = user.token;
-        // token.provider = account.provider;
       }
       return token;
     },
     session: async ({ session, token }) => {
       if (token) {
         session.accessToken = token.accessToken;
-        // session.provider = token.provider;
         session.user = token.name;
       }
       return session;

@@ -23,7 +23,7 @@ const Login = () => {
 
   const handleInputBlur = (e) => {
     const inputElement = e.target;
-
+    // Check if username is under 4 characters in length
     if (inputElement.id === 'signupUsername' && inputElement.value.length > 0 && inputElement.value.length <= 4) {
       setInputError(inputElement, 'Username must be at least 4 characters in length');
     }

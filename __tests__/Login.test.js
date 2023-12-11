@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Login from '../components/login/Login';
 
@@ -39,13 +39,19 @@ describe('Login Component Tests', () => {
     });
 
     test('confirm password matches the password', () => {
+        // Arrange
         render(<Login/>);
+
+        // Act
         const signupPasswordInput = screen.getByTestId('signupPassword');
         const signupConfirmPasswordInput = screen.getByTestId('signupConfirmPassword');
         fireEvent.input(signupPasswordInput, { target: { value: 'abc' } });
         fireEvent.input(signupConfirmPasswordInput, { target: { value: 'abcd' } });
         fireEvent.submit(screen.getByTestId('signup-form'));
+
+        // Assert
         const formMessage = screen.getByTestId('formMessage');
+
         expect(formMessage).toHaveClass('form__message--error');
 
     });

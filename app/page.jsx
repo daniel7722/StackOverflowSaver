@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import Login from '../components/login/Login';
-// import Loginstatus from '../component/loginStatus';
-
 export default function Home () {
   return (
     <>
