@@ -1,38 +1,48 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import styles from './modal.module.css';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
+import { FaCheck } from 'react-icons/fa';
 
-const Modal = ({ data, close, onDelete }) => {
+const Modal = ({ data, close, setQuestions, questions }) => {
   const { q_id, a_id, question, answer } = data;
   const { data: session } = useSession();
   const { user } = session;
   console.log('Modal data:', data); // Add this line to log the data prop
 
+  const [confirmDelete, setConfirmDelete] = useState(false);
+
   const handleDelete = async () => {
     console.log('Delete button clicked'); // Simplified log statement
     console.log('Deleting:', { q_id, a_id, user }); // Log the deletion data
-    try {
-      console.log('Delete button clicked'); // Simplified log statement
-      const response = await fetch('/api/del_from_db', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ q_id, a_id, user })
-      });
+    if (confirmDelete) {
+      try {
+        console.log('Delete button clicked'); // Simplified log statement
+        const response = await fetch('/api/del_from_db', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ q_id, a_id, user })
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      console.log('Delete response:', result); // Log the response
+        console.log('Delete response:', result); // Log the response
 
-      if (result.success) {
-        onDelete();
-      } else {
+        if (result.success) {
+          const updatedQuestions = questions.filter(question => question.q_id !== q_id);
+          setQuestions(updatedQuestions);
+        } else {
         // Handle failure
+        }
+      } catch (error) {
+        console.error('Error deleting question-answer pair', error);
       }
-    } catch (error) {
-      console.error('Error deleting question-answer pair', error);
-    } // Close modal after deletion (or only on success)
+    } else {
+      // Show confirmation modal when the user clicks delete button
+      setConfirmDelete(true);
+    }
   };
   const modalVariants = {
     open: {
@@ -75,7 +85,7 @@ const Modal = ({ data, close, onDelete }) => {
           whileHover={{ scale: 1.2 }}
           onClick={handleDelete} // Changed from 'close' to 'handleDelete'
         >
-          <RiDeleteBin6Fill className={styles.modal__closeicon} />
+          {confirmDelete ? <FaCheck className={styles.modal__closeicon}/> : <RiDeleteBin6Fill className={styles.modal__closeicon} />}
         </motion.button>
        </motion.div>
     </motion.div>

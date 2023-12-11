@@ -49,7 +49,7 @@ export const authOptions = {
 
   pages: {
     signIn: '/',
-    signOut: null,
+    signOut: '/',
     error: '/auth/error' // Error code passed in query string as ?error=
   },
 

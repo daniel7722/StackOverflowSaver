@@ -12,19 +12,20 @@ body {
     --color-error: #cc3333;
     --color-success: #4bb544;
     --border-radius: 4px;
-
     margin: 0;
     height: 100vh;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     font-size: 20px;
     background-color: rgb(25, 28, 32);
     font-family: 'Ropa Sans', sans-serif;
     font-weight: 400;
+
 }
 
 .loginContainer {
+  margin-top: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,6 +146,25 @@ body {
     text-decoration: underline;
 }
 
+code {
+  color: var(--color-primary);
+}
+
+strong {
+  color: var(--color-error);
+}
+
+input:focus::placeholder {
+  color:transparent;
+}
+
+input:focus::-webkit-input-placeholder {
+  color:transparent;
+}
+
+input:focus:-moz-placeholder {
+  color:transparent;
+}
 
 /* html {
   box-sizing: border-box;
@@ -250,3 +270,7 @@ p {
 li {
   display: list-item;
 }
+
+::-webkit-scrollbar-corner {
+  display: none;
+  }

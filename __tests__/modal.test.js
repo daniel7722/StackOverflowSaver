@@ -19,6 +19,8 @@ jest.mock("next-auth/react", () => {
     };
   });
 
+global.console.error = jest.fn();
+
 describe('Modal component', () => {
   const mockClose = jest.fn(); // Mock function for the 'close' prop
   const mockData = {
@@ -47,6 +49,7 @@ describe('Modal component', () => {
 
     // Simulate a click event on the delete button
     const deleteButton = getByTestId('delete-button');
+    fireEvent.click(deleteButton);
     fireEvent.click(deleteButton);
 
     // Verify that handleDelete function is called

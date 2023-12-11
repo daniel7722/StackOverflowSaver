@@ -131,11 +131,11 @@ const Login = () => {
           <h1 className="form__title">Log in</h1>
           <div className="form__message form__message--error"></div>
           <div className="for__input-group">
-            <input type="text" className="form__input" id='username' autoFocus placeholder="Username or email" />
+            <input type="text" className="form__input" id='username' autoFocus placeholder="username" />
             <div className="form__input-error-message"></div>
           </div>
           <div className="for__input-group">
-            <input type="password" className="form__input" id='password' autoFocus placeholder="Password" />
+            <input type="password" className="form__input" id='password' autoFocus placeholder="password" />
             <div className="form__input-error-message"></div>
           </div>
           <button className="form__button" type='submit'>Continue</button>

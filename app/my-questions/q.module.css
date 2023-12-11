@@ -10,3 +10,100 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
+.container {
+    text-align: center;
+    margin-bottom: 2%;
+    padding-bottom: 4px;
+    border-bottom: solid 2px rgb(222, 180, 104); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: white;
+    margin-left: 3.8%;
+}
+
+.settings {
+    color: #9e9b9b;
+    scale: 1.2;
+    transition: transform .7s ease-in-out;
+}
+
+.settingsWrapper {
+    margin-right: 2%;
+}
+
+
+.settings:hover {
+    color: rgb(222, 180, 104);
+    transform: rotate(180deg);
+}
+
+.search {
+    width: 70%;
+    height: 5rem;
+    max-height: 30px;
+    margin-top: 1rem;
+    text-indent: 1rem;
+    border-radius: 15px;
+    font-size: 0.8em;
+    background-color: rgb(176, 153, 111);
+    outline: none;
+}
+
+.search:hover {
+    border: solid 2px rgb(222, 180, 104); 
+}
+
+
+.searchIcon {
+    color:rgb(151, 127, 82);
+    margin-right: 8px;
+    margin-top: 16px;
+    scale: 1.3;
+
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar {
+    position: absolute;
+    top: 60px; /* Adjust this based on your layout */
+    right: 0;
+    width: 150px;
+    background-color: rgb(38, 41, 48);
+    padding: 10px;
+    border: solid 2px rgb(49, 56, 72);
+  }
+
+  .signOut {
+    background-color: rgb(38, 41, 48);
+    color: rgb(222, 180, 104);
+    width: 100%;
+  }
+
+  .signOut:hover {
+    background-color: rgb(222, 180, 104);
+    color: rgb(38, 41, 48);
+  }
+
+  .delete {
+    background-color: rgb(38, 41, 48);
+    color: #cc3333;;
+    width: 100%;
+  }
+
+  .delete:hover {
+    background-color: #cc3333;;
+    color: rgb(38, 41, 48);
+  }
+

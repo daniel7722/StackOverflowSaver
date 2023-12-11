@@ -1,9 +1,9 @@
 'use client';
 import React from 'react';
 import styles from './question.module.css';
-import { motion } from 'react-magic-motion';
+import { motion } from 'framer-motion';
 
-const Question = ({ data, open }) => {
+const FormQuestion = ({ data, open }) => {
   const { question } = data;
 
   return (
@@ -11,12 +11,10 @@ const Question = ({ data, open }) => {
       className={styles.question}
       onClick={open}
       whileHover={{ scale: 1.1 }}
-      initial={{ opacity: 0, scale: 0.3 }}
-      animate={{ opacity: 1, scale: 1, transition: { scale: { type: 'spring' } } }}
     >
       <div
         data-testid="question-component"
-        className={styles.question__content}
+        className={styles.add}
       >
         {question}
       </div>
@@ -24,4 +22,4 @@ const Question = ({ data, open }) => {
   );
 };
 
-export default Question;
+export default FormQuestion;
